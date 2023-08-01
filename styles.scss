@@ -1,0 +1,211 @@
+@import "./sass/reset";
+@import "./sass/variables";
+@import "./sass/mixin";
+
+/*HEADER*/
+
+.container {
+  padding: 40px 40px 10px 40px;
+}
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+
+  align-items: center;
+  justify-content: space-between;
+  /*aseguramos siempre le contenedor*/
+  //   padding: 40px 20px 20px 20px;
+}
+
+.nav__item {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 3vw;
+}
+
+/*cover*/
+
+.cover {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px;
+
+  &__text {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 35vw;
+    gap: 20px;
+    h2 {
+      font-size: 55px;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      line-height: 70px;
+      letter-spacing: 10px;
+      position: relative;
+      .underlined__large {
+        /*underlined($width, $height)*/
+        @include underlined(50%, 45px);
+      }
+    }
+    p {
+      color: $color-primary;
+    }
+    .cover__buttons {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 35px;
+      button {
+        @include button();
+      }
+    }
+  }
+
+  img {
+    width: 500px;
+  }
+}
+
+/*cards*/
+.cards {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 30px 0;
+  //   padding: 40px 20px 0px 20px;
+  .card__item {
+    /*contenido de la card va en columnas*/
+    display: flex;
+    flex-flow: column nowrap;
+
+    gap: 10px;
+    width: 250px;
+    background-color: $bg-secondary;
+    padding: 20px;
+    position: relative;
+    h5 {
+      position: relative;
+      z-index: 1;
+      font-size: 18px;
+      .decoration__small {
+        /*underlined($width, $height)*/
+        @include underlined(15%, 10px);
+        top: -2px;
+      }
+    }
+    p {
+      font-size: 15px;
+    }
+    .number {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      border: black 1px solid; /*le damos bordes a elemento*/
+      width: 35px; /*le damos un ancho*/
+      height: 35px /*le damos un alto*/;
+      border-radius: 100%; /*Bordiamos el elemenot para hacerlo circular*/
+      background-color: $bg-secondary;
+      position: relative;
+      z-index: 2;
+      top: -10px;
+      left: -10px;
+    }
+    .shadow {
+      @include shadow(10px, 6px, 1); /*traeme el circulo sombriado*/
+    }
+  }
+}
+
+.whatsapp {
+  // position: fixed;
+  position: fixed;
+  bottom: 40px;
+  right: 5px;
+  z-index: 2;
+}
+
+.whatsapp a {
+  padding: 20px 0;
+}
+
+.whatsapp a::before {
+  content: "Te asesoramos por whatsapp";
+  display: inline-block;
+  vertical-align: middle;
+  padding: 5px 10px;
+  margin-right: 10px;
+  color: rgba(0, 0, 0, 0.8);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+.whatsapp:hover a::before {
+  opacity: 1;
+}
+
+/*footer*/
+footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  //   padding: 40px 20px 0px 20px;
+  .social {
+    display: flex;
+    flex-flow: row nowrap;
+
+    .icons__social {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 35px;
+
+      .item__icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        background-color: $bg-secondary;
+        border-radius: 100%;
+        position: relative;
+        img {
+          height: 20px;
+        }
+        .shadow {
+          @include shadow(-1px, -4px, -1);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .cover {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 20px;
+
+    &__text {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      width: 35vw;
+      gap: 20px;
+    }
+
+    img {
+      width: 250px;
+    }
+  }
+}

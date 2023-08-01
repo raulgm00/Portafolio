@@ -1,0 +1,42 @@
+
+/*Decoracion de subyadado*/
+@mixin underlined($width, $height){
+    background-color: $bg-primary;
+    width: $width;
+    height: $height;
+    position: absolute;
+    /*Siempre negativo para que quede por detras*/
+    z-index: -1;
+    top: -5px;
+}
+
+/*Botones reutilizables */
+@mixin button(){
+    width: 120px;
+    height: 60px;
+    background-color: $bg-primary;
+    border: black 1px dotted;
+    border-radius: 7px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+    &:hover{
+        color: $bg-primary;
+        background-color: $color-primary;
+    }
+}
+
+/*Decoracion de sombreado en circulo*/
+@mixin shadow($top, $left, $index){
+    background-color: $bg-primary;
+    width: 37px;
+    height: 37px;
+    border-radius: 100%;
+    position: absolute;
+    top: $top;
+    left: $left;
+    /*Siempre negativo para que quede por detras*/
+    z-index: $index;
+}
